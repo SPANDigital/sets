@@ -41,7 +41,7 @@ func TestNewSet(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := NewSet(tt.args.items...); !reflect.DeepEqual(got.innerMap, tt.want) {
-				t.Errorf("NewSet() = %v, want %v", got, tt.want)
+				t.Errorf("NewSet() = %v, wantAfterSort %v", got, tt.want)
 			}
 		})
 	}
@@ -86,7 +86,7 @@ func TestSet_Contains(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if gotFound := tt.s.Contains(tt.args.t); gotFound != tt.wantFound {
-				t.Errorf("Contains() = %v, want %v", gotFound, tt.wantFound)
+				t.Errorf("Contains() = %v, wantAfterSort %v", gotFound, tt.wantFound)
 			}
 		})
 	}
@@ -99,9 +99,9 @@ func sort[T cmp.Ordered](s []T) []T {
 
 func TestSet_Values(t *testing.T) {
 	type testCase[T comparable] struct {
-		name string
-		s    *Set[T]
-		want []T
+		name          string
+		s             *Set[T]
+		wantAfterSort []T
 	}
 	tests := []testCase[string]{
 		{
@@ -132,8 +132,8 @@ func TestSet_Values(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := tt.s.Values(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Values() = %v, want %v", sort(got), sort(tt.want))
+			if got := tt.s.Values(); !reflect.DeepEqual(got, tt.wantAfterSort) {
+				t.Errorf("Values() = %v, wantAfterSort %v", sort(got), sort(tt.wantAfterSort))
 			}
 		})
 	}

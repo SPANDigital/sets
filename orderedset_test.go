@@ -40,7 +40,7 @@ func TestNewOrderedSet(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := NewOrderedSet(tt.args.items...); !reflect.DeepEqual(got.innerMap, tt.want) {
-				t.Errorf("NewOrderedSet() = %v, want %v", got, tt.want)
+				t.Errorf("NewOrderedSet() = %v, wantAfterSort %v", got, tt.want)
 			}
 		})
 	}
@@ -85,7 +85,7 @@ func TestOrderdSet_Contains(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if gotFound := tt.s.Contains(tt.args.t); gotFound != tt.wantFound {
-				t.Errorf("Contains() = %v, want %v", gotFound, tt.wantFound)
+				t.Errorf("Contains() = %v, wantAfterSort %v", gotFound, tt.wantFound)
 			}
 		})
 	}
@@ -122,7 +122,7 @@ func TestOrderdSet_Values(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.s.Values(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Values() = %v, want %v", got, tt.want)
+				t.Errorf("Values() = %v, wantAfterSort %v", got, tt.want)
 			}
 		})
 	}
