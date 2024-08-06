@@ -105,29 +105,29 @@ func TestSet_Values(t *testing.T) {
 	}
 	tests := []testCase[string]{
 		{
-			name: "empty",
-			s:    NewSet[string](),
-			want: []string{},
+			name:          "empty",
+			s:             NewSet[string](),
+			wantAfterSort: []string{},
 		},
 		{
-			name: "empty",
-			s:    NewSet[string](),
-			want: []string{},
+			name:          "empty",
+			s:             NewSet[string](),
+			wantAfterSort: []string{},
 		},
 		{
-			name: "one",
-			s:    NewSet("one"),
-			want: []string{"one"},
+			name:          "one",
+			s:             NewSet("one"),
+			wantAfterSort: []string{"one"},
 		},
 		{
-			name: "two",
-			s:    NewSet("one", "two"),
-			want: []string{"one", "two"},
+			name:          "two",
+			s:             NewSet("one", "two"),
+			wantAfterSort: []string{"one", "two"},
 		},
 		{
-			name: "three",
-			s:    NewSet("one", "two", "three"),
-			want: []string{"one", "two", "three"},
+			name:          "three",
+			s:             NewSet("one", "two", "three"),
+			wantAfterSort: []string{"one", "two", "three"},
 		},
 	}
 	for _, tt := range tests {
