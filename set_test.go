@@ -133,7 +133,8 @@ func TestSet_Values(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.s.Values(); !reflect.DeepEqual(got, tt.wantAfterSort) {
-				t.Errorf("Values() = %v, wantAfterSort %v", sort(got), sort(tt.wantAfterSort))
+				sortGot := sort(got)
+				t.Errorf("Values() = %v, wantAfterSort %v", sortGot, tt.wantAfterSort)
 			}
 		})
 	}
