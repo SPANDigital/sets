@@ -189,5 +189,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-[License information here]
+MIT License - see [LICENSE](LICENSE) file for details.
+
+Copyright (c) 2024 Span Digital
 
