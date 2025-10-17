@@ -1,4 +1,4 @@
-# Go Sets 🎯
+# SPANDigital Sets 🎯
 
 A fast, type-safe, and easy-to-use set library for Go with three flavors to match your needs.
 
